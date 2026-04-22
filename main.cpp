@@ -6,9 +6,6 @@
 
 using namespace std;
 
-// =======================
-// Власний клас
-// =======================
 class Number {
 public:
     int value;
@@ -24,15 +21,10 @@ public:
     }
 };
 
-// Вивід для класу
 ostream& operator<<(ostream& os, const Number& n) {
     os << n.value;
     return os;
 }
-
-// =======================
-// 1. Об'єднання array
-// =======================
 template <typename T, size_t N1, size_t N2>
 array<T, N1 + N2> mergeArrays(const array<T, N1>& a, const array<T, N2>& b) {
     array<T, N1 + N2> result;
@@ -65,9 +57,6 @@ array<T, N1 + N2> mergeArrays(const array<T, N1>& a, const array<T, N2>& b) {
     return result;
 }
 
-// =======================
-// 2. Розбиття vector
-// =======================
 template <typename T>
 void splitVector(const vector<T>& v, vector<T>& even, vector<T>& odd) {
     for (auto it = v.begin(); it != v.end(); ++it) {
@@ -78,9 +67,6 @@ void splitVector(const vector<T>& v, vector<T>& even, vector<T>& odd) {
     }
 }
 
-// =======================
-// 3. Паліндром deque
-// =======================
 template <typename T>
 bool isPalindrome(const deque<T>& d) {
     auto left = d.begin();
@@ -97,9 +83,6 @@ bool isPalindrome(const deque<T>& d) {
     return true;
 }
 
-// =======================
-// Вивід контейнера
-// =======================
 template <typename Container>
 void printContainer(const Container& c) {
     for (auto it = c.begin(); it != c.end(); ++it)
@@ -107,9 +90,6 @@ void printContainer(const Container& c) {
     cout << endl;
 }
 
-// =======================
-// MAIN
-// =======================
 int main() {
 
     cout << "=== ARRAY (int) ===\n";
@@ -133,7 +113,6 @@ int main() {
     auto mergedClass = mergeArrays(n1, n2);
     printContainer(mergedClass);
 
-    // =======================
 
     cout << "\n=== VECTOR ===\n";
     vector<int> v = {1,2,3,4,5,6,7,8};
@@ -147,7 +126,6 @@ int main() {
     cout << "Odd: ";
     printContainer(odd);
 
-    // =======================
 
     cout << "\n=== DEQUE ===\n";
     deque<int> d = {1, 2, 3, 2, 1};
@@ -157,7 +135,6 @@ int main() {
     else
         cout << "Not palindrome\n";
 
-    // =======================
 
     cout << "\n=== DEQUE (custom class) ===\n";
     deque<Number> d2_class = {Number(1), Number(2), Number(1)};
